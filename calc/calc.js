@@ -13,7 +13,7 @@ var cCat = []; // list of all available cipher categories
 var colorMenuColumns = ($(window).width() < 1600) ? 2 : 4 // number of columns inside Color Menu
 var encodingMenuColumns = 4 // number of columns inside Encoding menu
 var enabledCiphColumns = 4 // number of columns for enabled ciphers table (for phrase)
-var optForceTwoColumnLayout = false // force 2 cipher columns
+var optForceTwoColumnLayout = true // force 2 cipher columns
 var optColoredCiphers = true // use colored ciphers
 
 var colorControlsMenuOpened = false // color controls menu state
