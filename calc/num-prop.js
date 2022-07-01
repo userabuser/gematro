@@ -98,7 +98,6 @@ function listNumberPropertiesAlt(val) {
 
 	o += '<tr><td colspan=2 class="numPropLabel">Tic Xenotation</td></tr>'
 	o += '<tr><td colspan=2 class="numTicXeno">'+getNumXenotation(val)+'</td></tr>'
-	o += '<tr><td colspan=2 class="numTicXeno">'+getNumNullXenotation(val)+'</td></tr>'
 
 	o += '<tr><td colspan=2><hr class="numPropSeparator"></td></tr>'
 
@@ -113,7 +112,6 @@ function listNumberPropertiesAlt(val) {
 // =========================== Xenotation ===========================
 
 const getNumXenotation = n => { if (n == 1) { return '(-P)&#8226;' } else if (n == 0) { return '((-P))&#8226;' }; return n2x(n).map(stringify).join('') }
-const getNumNullXenotation = n => { if (n == 1) { return '(-P)()' } else if (n == 0) { return '((-P))()' }; return n2x(n).map(stringify).join('').replace(/&#8226;/g, '()') }
 const stringify = a => { if (Array.isArray(a)) { return '(' + a.reduce((a, b) => a + stringify(b), '') + ')' } else { return a } }
 const shuffle = a => { a.sort((b, c) => Math.round(Math.random()) ? 1 : -1); return a }
 const n2x = n => { // 3 -> (:), middle dot - &#183;
@@ -122,12 +120,11 @@ const n2x = n => { // 3 -> (:), middle dot - &#183;
 	// return factors.map(f => f == 2 ? ':' : n2x(primeNums.indexOf(f)+1))
 };
 
-function strToXenotation(str, nullXeno = false) {
+function strToXenotation(str) {
 	var out = ''
 	var sArr = str.split(',')
 	for (var i = 0; i < sArr.length; i++) {
-		if (nullXeno) { out += getNumNullXenotation(sArr[i]) + ',' }
-		else { out += getNumXenotation(sArr[i]) + ',' }
+		out += getNumXenotation(sArr[i]) + ','
 	}
 	console.log(out.slice(0,-1))
 	copy(out.slice(0,-1))
