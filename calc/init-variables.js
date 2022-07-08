@@ -269,14 +269,14 @@ $(document).ready(function(){
 	$("body").on("click", "#btn-print-cipher-png", function () { // for future elements
 		// English-Ordinal_cipher.png
 		var fileName = breakCipher.replace(/ /g, "-")+"_cipher.png";
-		openImageWindow("#ChartSpot", fileName);
+		openImageWindow("#ChartSpot", fileName, 1.2);
 	});
 
 	$("body").on("click", "#btn-print-history-png", function () {
 		// phrase-with-spaces_2021-03-26_10-23-52_table.png
 		var fileName = sHistory[0].normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/ /g, "-").replace(/["|']/g, "")+
 			"_"+getTimestamp()+"_table.png";
-		openImageWindow(".HistoryTable", fileName);
+		openImageWindow(".HistoryTable", fileName, 1.2);
 	});
 	$("body").on("click", "#btn-date-calc-png", function () {
 		$('#dateDesc1Area').html('<span class="dateDescription">'+dateDesc1Saved+'</span>') // input to fixed text
@@ -285,7 +285,7 @@ $(document).ready(function(){
 		// phrase-with-spaces_2021-03-26_10-23-52_table.png
 		var fileName = (saved_d1.getMonth()+1)+'-'+saved_d1.getDate()+'-'+saved_d1.getFullYear()+'_'+
 			(saved_d2.getMonth()+1)+'-'+saved_d2.getDate()+'-'+saved_d2.getFullYear()+"_date_durations.png";
-		openImageWindow(".dateCalcTable2", fileName);
+		openImageWindow(".dateCalcTable2", fileName, 1.2);
 	});
 
 	$("body").on("click", "#btn-print-word-break-png", function () {
@@ -293,7 +293,7 @@ $(document).ready(function(){
 		for (var i = 0; i < cipherList.length; i++) { if (cipherList[i].cipherName == breakCipher) break; } // get current cipher index
 		var fileName = sVal().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/ /g, "-").replace(/["|']/g, "")+
 			"_"+breakCipher.replace(/ /g, "-")+"_"+cipherList[i].calcGematria(sVal())+"_breakdown.png";
-		openImageWindow("#BreakTableContainer", fileName);
+		openImageWindow("#BreakTableContainer", fileName, 1.2);
 	});
 
 	$("body").on("click", "#btn-print-breakdown-details-png", function () {
@@ -320,14 +320,14 @@ $(document).ready(function(){
 		// phrase-with-spaces_English-Ordinal_190_card.png
 		var fileName = sVal().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/ /g, "-").replace(/["|']/g, "")+
 			"_"+breakCipher.replace(/ /g, "-")+"_"+cipherList[i].calcGematria(sVal())+"_card.png";
-		openImageWindow("#BreakdownDetails", fileName);
+		openImageWindow("#BreakdownDetails", fileName, 1.2);
 	});
 
 	$("body").on("click", "#btn-num-props-png", function () {
 		// 123_number_properties.png OR 123_alt_number_properties.png
 		var curNum = document.querySelector('.numPropTooltip').dataset.number // current number
 		var fileName = curNum+"_number_properties.png";
-		openImageWindow(".numPropTooltip", fileName);
+		openImageWindow(".numPropTooltip", fileName, 1.2);
 	});
 
 	$("body").on("change", "#importFileDummy", function(){
