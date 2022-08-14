@@ -740,7 +740,7 @@ body {
 	display: inline-block;
 	color: var(--font-white-1);
 	color: var(--font-white-2);
-	padding: 0.2em 0.5em;
+	padding: 0.2em 0.4em;
 	margin: 0.1em 0em;
 	border: 1px solid var(--border-accent);	  
 	width: 100%;
