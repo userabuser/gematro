@@ -43,7 +43,7 @@ var optShowOnlyMatching = false // set opacity of nonmatching values to zero
 
 var optNumCalcMethod = 1 // 0 - "Off", 1 - "Full", 2 - "Reduced"
 var optLetterWordCount = true // show word/letter count
-var optCompactBreakdown = true // compact breakdown - "phrase = 67 (English Ordinal)" is not included inside the chart
+var optCompactBreakdown = false // compact breakdown - "phrase = 67 (English Ordinal)" is not included inside the chart
 var optWordBreakdown = true // word breakdown
 var optShowCipherChart = true // cipher breakdown chart
 
@@ -61,7 +61,7 @@ var liveDatabaseMode = true // live database mode
 var dbPageItems = 15 // number of phrases in one section
 var dbScrollItems = 1 // used for scrolling
 
-var optGradientCharts = false // gradient fill for breakdown/cipher charts
+var optGradientCharts = true // gradient fill for breakdown/cipher charts
 var optGradientChartsDefault = optGradientCharts
 
 var interfaceHue = 222 // calculator interface color
