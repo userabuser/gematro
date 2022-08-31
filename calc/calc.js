@@ -61,7 +61,7 @@ var liveDatabaseMode = true // live database mode
 var dbPageItems = 15 // number of phrases in one section
 var dbScrollItems = 1 // used for scrolling
 
-var optGradientCharts = false // gradient fill for breakdown/cipher charts
+var optGradientCharts = true // gradient fill for breakdown/cipher charts
 var optGradientChartsDefault = optGradientCharts
 
 var interfaceHue = 222 // calculator interface color
