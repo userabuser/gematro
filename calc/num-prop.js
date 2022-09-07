@@ -82,6 +82,7 @@ function listNumberPropertiesAlt(val) {
 	o += '<tr><td><span class="numPropBaseLabel">base16</span></td><td class="numPropBaseValue"><span class="numPropValPad">'+numBaseXtoY(val, 10, 16)+'</span></td></tr>'
 	o += '<tr><td><span class="numPropBaseLabel">base36</span></td><td class="numPropBaseValue"><span class="numPropValPad">'+numBaseXtoY(val, 10, 36)+'</span></td></tr>'
 	o += '<tr><td><span class="numPropBaseLabel">base60</span></td><td class="numPropBaseValue"><span class="numPropValPad">'+fmtBaseY(numBaseXtoY(val, 10, 60, ":"), 60)+'</span></td></tr>'
+	o += '<tr><td><span class="numPropBaseLabel">base62</span></td><td class="numPropBaseValue"><span class="numPropValPad">'+numBaseXtoY(val, 10, 62)+'</span></td></tr>'
 	// o += '<tr><td><span class="numPropBaseLabel">base7 (+1)</span></td><td class="numPropBaseValue"><span class="numPropValPad">'+incEachDigit(numBaseXtoY(val, 10, 7), 1, "-")+'</span></td></tr>'
 
 	o += '<tr><td colspan=2><hr class="numPropSeparator"></td></tr>'
@@ -279,7 +280,7 @@ function numBaseXtoY (num, x, y, separator = "") { // convert number from one ba
 
 	var i
 	var baseDigits = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f',
-	'g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+	'g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 	var newBase = [] // array for new base digits
 
 	if (x !== 10) { // convert to base10 if necessary
@@ -302,10 +303,10 @@ function numBaseXtoY (num, x, y, separator = "") { // convert number from one ba
 	}
 
 	var out = ""
-	if ( (y > 16 && y !== 36) && separator == "") separator = ":" // if no separator was specified for base16+, use colon
+	if ( (y > 16 && y !== 36 && y !== 62) && separator == "") separator = ":" // if no separator was specified for base16+, use colon
 
 	for (i = 0; i < newBase.length; i++) { // join digits (characters)
-		if (y <= 16 || y == 36) {
+		if (y <= 16 || y == 36 || y == 62) {
 			out += baseDigits[newBase[i]].toUpperCase() + separator
 		} else if (y > 16 && y <= 99) {
 			out += ("00" + newBase[i]).slice(-2) + separator // leading zeroes
