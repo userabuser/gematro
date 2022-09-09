@@ -309,7 +309,7 @@ function numBaseXtoY (num, x, y, separator = "") { // convert number from one ba
 			out += baseDigits[newBase[i]].split() + separator
 		}
 			else if (y <= 16 || y == 36) {
-				out += baseDigits[newBase[i]].toUpperCase() + separator
+				out += baseDigits[newBase[i]].toLowerCase() + separator
 			} else if (y > 16 && y <= 99) {
 				out += ("00" + newBase[i]).slice(-2) + separator // leading zeroes
 			} else if (y > 100 && y <= 999) {
