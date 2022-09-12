@@ -43,7 +43,7 @@ var optShowOnlyMatching = false // set opacity of nonmatching values to zero
 
 var optNumCalcMethod = 1 // 0 - "Off", 1 - "Full", 2 - "Reduced"
 var optLetterWordCount = true // show word/letter count
-var optCompactBreakdown = false // compact breakdown - "phrase = 67 (English Ordinal)" is not included inside the chart
+var optCompactBreakdown = true // compact breakdown - "phrase = 67 (English Ordinal)" is not included inside the chart
 var optWordBreakdown = true // word breakdown
 var optShowCipherChart = true // cipher breakdown chart
 
