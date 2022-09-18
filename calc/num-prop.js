@@ -307,16 +307,15 @@ function numBaseXtoY (num, x, y, separator = "") { // convert number from one ba
 	for (i = 0; i < newBase.length; i++) { // join digits (characters)
 		if (y == 62) {
 			out += baseDigits[newBase[i]].split() + separator
+		} else if (y <= 16 || y == 36) {
+			out += baseDigits[newBase[i]].toLowerCase() + separator
+		} else if (y > 16 && y <= 99) {
+			out += ("00" + newBase[i]).slice(-2) + separator // leading zeroes
+		} else if (y > 100 && y <= 999) {
+			out += ("000" + newBase[i]).slice(-3) + separator
+		} else {
+			out += newBase[i] + separator // no leading zeroes for other cases
 		}
-			else if (y <= 16 || y == 36) {
-				out += baseDigits[newBase[i]].toLowerCase() + separator
-			} else if (y > 16 && y <= 99) {
-				out += ("00" + newBase[i]).slice(-2) + separator // leading zeroes
-			} else if (y > 100 && y <= 999) {
-				out += ("000" + newBase[i]).slice(-3) + separator
-			} else {
-				out += newBase[i] + separator // no leading zeroes for other cases
-			}
 	}
 	if (separator !== "") out = out.slice(0,-1) // remove last separator if separators were used
 	return out
