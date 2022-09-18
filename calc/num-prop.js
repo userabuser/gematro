@@ -305,10 +305,8 @@ function numBaseXtoY (num, x, y, separator = "") { // convert number from one ba
 	if ( (y > 16 && y !== 36 && y !== 62) && separator == "") separator = ":" // if no separator was specified for base16+, use colon
 
 	for (i = 0; i < newBase.length; i++) { // join digits (characters)
-		if (y == 62) {
+		if (y <= 16 || y == 36 || y == 62) {
 			out += baseDigits[newBase[i]].split() + separator
-		} else if (y <= 16 || y == 36) {
-			out += baseDigits[newBase[i]].toLowerCase() + separator
 		} else if (y > 16 && y <= 99) {
 			out += ("00" + newBase[i]).slice(-2) + separator // leading zeroes
 		} else if (y > 100 && y <= 999) {
