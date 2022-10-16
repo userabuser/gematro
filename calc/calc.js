@@ -126,6 +126,9 @@ var calcOptionsArr = [ // used to export/import settings
 var runOnceRestoreCalcSet = true
 function initCalc(defSet = false) { // run after page has finished loading
 	configureCalcInterface(true)
+	if (navigator.userAgent.match('Android')) {
+		$('#enterPhraseBtn').removeClass('hideValue') // "Enter" button for Android devices
+	}
 	if (defSet && typeof calcOpt !== 'undefined') importCalcOptions(calcOptions); // load settings from ciphers.js
 	generateRndColors()
 	if (runOnceRestoreCalcSet && window.localStorage.getItem('userCalcSettings') !== null) {
@@ -285,9 +288,9 @@ function createAboutMenu() { // create menu with all cipher catergories
 	o += '</center>'
 	// o += '<div style="margin: 0.5em;"></div>'
 	o += '<div style="margin: 1em;"></div>'
-	o += '<input class="intBtn" type="button" value="GitHub Repository" onclick="gotoGitHubRepo()">'
-	o += '<div style="margin: 0.5em;"></div>'
 	o += '<input class="intBtn" type="button" value="Gematria Research" onclick="gotoBlogger()">'
+	o += '<div style="margin: 0.5em;"></div>'
+	o += '<input class="intBtn" type="button" value="GitHub Repository" onclick="gotoGitHubRepo()">'
 	o += '<div style="margin: 0.5em;"></div>'
 	o += '<input class="intBtn" type="button" value="Quickstart Guide" onclick="displayQuickstartGuide()">'
 	o += '<div style="margin: 0.5em;"></div>'
