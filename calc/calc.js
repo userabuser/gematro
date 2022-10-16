@@ -126,9 +126,6 @@ var calcOptionsArr = [ // used to export/import settings
 var runOnceRestoreCalcSet = true
 function initCalc(defSet = false) { // run after page has finished loading
 	configureCalcInterface(true)
-	if (navigator.userAgent.match('Android')) {
-		$('#enterPhraseBtn').removeClass('hideValue') // "Enter" button for Android devices
-	}
 	if (defSet && typeof calcOpt !== 'undefined') importCalcOptions(calcOptions); // load settings from ciphers.js
 	generateRndColors()
 	if (runOnceRestoreCalcSet && window.localStorage.getItem('userCalcSettings') !== null) {
