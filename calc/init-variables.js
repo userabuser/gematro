@@ -455,8 +455,17 @@ $(document).ready(function(){
 	});
 	
 	// breakdown or cipher table letter/number clicked
-	$("body").on("click", ".ChartChar, .ChartVal, .BreakChar, .BreakVal, .BreakValDark, .BreakWordSum", function () {
+	$("body").on("click", ".ChartVal, .BreakChar, .BreakVal, .BreakValDark, .BreakWordSum", function () {
 		$(this).toggleClass('highlightCipherTable'); 
+	});
+
+	// cipher chart letter click (keyboard)
+	$("body").on("click", ".ChartChar", function () {
+		$('#phraseBox').val($('#phraseBox').val()+$(this).text());
+		$(this).toggleClass('highlightCipherTable'); el = $(this);
+		setTimeout(function (){ el.toggleClass('highlightCipherTable'); }, 75)
+		updateEnabledCipherTable();
+		updateWordBreakdown(breakCipher,false,false);
 	});
 
 	// history table value clicked (right mouse button)
