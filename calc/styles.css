@@ -535,6 +535,14 @@ body {
 	padding-bottom: 1em;
 }
 
+.ChartChar, .ChartVal, #capsNameChartBtn {
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
 /*        Buttons, Text Boxes, Controls       */
 /* ########################################## */
 

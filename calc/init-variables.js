@@ -377,6 +377,8 @@ var freq = []; // frequency of matches found with auto highlighter (combined)
 var prevPhrID = -1 // index of previously selected phrase in history table
 var prevCiphIndex = -1 // index of previously selected cipher in enabled ciphers table
 
+var showCapsCipherChart = false // display uppercase letters in Cipher Chart
+
 $(document).ready(function(){
 	
 	// Ctrl key modifier
@@ -466,6 +468,12 @@ $(document).ready(function(){
 		setTimeout(function (){ el.toggleClass('highlightCipherTable'); }, 75)
 		updateEnabledCipherTable();
 		updateWordBreakdown(breakCipher,false,false);
+	});
+	$("body").on("click", "#capsNameChartBtn", function () { // shift
+		showCapsCipherChart = !showCapsCipherChart
+		updateWordBreakdown(breakCipher,false,true); // update chart
+		$(this).toggleClass('highlightCipherTable'); el = $(this);
+		setTimeout(function (){ el.toggleClass('highlightCipherTable'); }, 75);
 	});
 
 	// history table value clicked (right mouse button)

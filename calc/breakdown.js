@@ -300,6 +300,7 @@ function updateCipherChart(curCipher) {
 	}
 
 	curCiphCol = (optColoredCiphers) ? 'color: hsl('+curCipher.H+' '+curCipher.S+'% '+curCipher.L+'% / 1)' : ''
+	curCiphFaintCol = (optColoredCiphers) ? 'color: hsl('+curCipher.H+' '+curCipher.S+'% '+curCipher.L+'% / 0.25)' : ''
 	curGradCol = (optColoredCiphers) ? 'hsl('+curCipher.H+' '+curCipher.S+'% '+curCipher.L+'% / 0.2)' : 'hsl(0 0% 0% / 0.1)'
 
 	var o = 'background: var(--body-bg-accent);'
@@ -318,9 +319,11 @@ function updateCipherChart(curCipher) {
 	o = '<table id="ChartTable">'
 	o += '<tbody><tr>'
 
-	o += '<td colspan="' + curCipher.cArr.length + '">'
+	o += '<tr>'
+	o += '<td id="capsNameChartBtn" colspan="' + (Math.ceil(curCipher.cArr.length / 2)) + '">'
 	o += '<font style="font-size: 150%; font-weight: 500; '+curCiphCol+'">' + curCipher.cipherName + '</font>'
-	o += '</td></tr><tr>'
+	o += '</td>'
+	o += '</tr><tr>'
 
 	var halfL = curCipher.cArr.length / 2
 	for (var x = 0; x < curCipher.cArr.length; x++) {
@@ -331,7 +334,7 @@ function updateCipherChart(curCipher) {
 			}
 			o += '</tr><tr>'
 		}
-		o += '<td class="ChartChar" font style="'+curCiphCol+'">' + String.fromCodePoint(curCipher.cArr[x]) + '</td>'
+		o += (showCapsCipherChart && !curCipher.caseSensitive) ? '<td class="ChartChar" font style="'+curCiphCol+'">' + String.fromCodePoint(curCipher.cArr[x]).toUpperCase() + '</td>' : '<td class="ChartChar" font style="'+curCiphCol+'">' + String.fromCodePoint(curCipher.cArr[x]) + '</td>'
 	}
 	if (curCipher.cArr.length % 2 == 1) { o += '<td class="ChartChar" font style="'+curCiphCol+'"></td>' } // empty character cell to make even rows
 	o += '</tr><tr>'
