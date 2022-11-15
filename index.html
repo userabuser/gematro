@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=520, maximum-scale=1, user-scalable=no">
 <link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 
-<!-- Android Web App - Add to Home Screen -->
-<link rel="manifest" href="manifest.json">
-
 <script src="lib/jquery.min.js"></script>
 <!-- html2canvas v1.0.0-alpha.12 -->
 
@@ -59,6 +56,7 @@ $(window).load(function(){
 		<div id="inputArea">
 		  <input id="queryDBbtn" class="hideValue" type="button" onclick="queryDatabase()" value="Query">
 		  <input id="phraseBox" autofocus type="text" spellcheck="false" autocomplete="off" oninput="updateEnabledCipherTable(); updateWordBreakdown(breakCipher,false,false);" onkeydown="phraseBoxKeypress(event.keyCode)" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)">
+		  <input id="enterPhraseBtn" type="button" onclick="phraseBoxKeypress(13)" value="&#9660;">
 		  <input id="highlightBox" type="text" spellcheck="false" autocomplete="off"><span id="clearFilterButton"></span>
 		</div>
 
